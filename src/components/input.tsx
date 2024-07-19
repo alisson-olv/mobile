@@ -1,4 +1,4 @@
-import { Text, TextInput, TextInputProps, View } from 'react-native';
+import { Pressable, Text, TextInput, TextInputProps, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -11,27 +11,9 @@ interface InputProps extends TextInputProps {
 }
 
 export default function Input({ label, type, ...props }: InputProps) {
-  const [showPassword, setShowPassword] = useState(true);
-  const isShowPassword = () => {
-    if (showPassword) {
-      return (
-        <Feather
-          onPress={() => setShowPassword(false)}
-          name='eye-off'
-          size={24}
-          color='#A4A4A4'
-        />
-      );
-    } else {
-      return (
-        <Feather
-          onPress={() => setShowPassword(true)}
-          name='eye'
-          size={24}
-          color='#A4A4A4'
-        />
-      );
-    }
+  const [showPassword, setShowPassword] = useState<boolean>(true);
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -43,23 +25,34 @@ export default function Input({ label, type, ...props }: InputProps) {
         end={{ x: 1, y: 0 }}
         style={{ borderRadius: 8 }}
       >
-        <View className='flex flex-row items-center justify-center p-5 px-10 border border-slate-500 rounded-lg'>
-          {type === 'email' && (
-            <Fontisto name='email' size={24} color='#A4A4A4' />
-          )}
-          {type === 'username' && (
-            <AntDesign name='user' size={24} color='#A4A4A4' />
-          )}
-          {type === 'password' && (
-            <Feather name='key' size={24} color='#A4A4A4' />
-          )}
+        <View className='flex flex-row items-center justify-between py-3 px-5 border border-slate-500 rounded-lg'>
+          <View>
+            {type === 'email' && (
+              <Fontisto name='email' size={24} color='#A4A4A4' />
+            )}
+            {type === 'username' && (
+              <AntDesign name='user' size={24} color='#A4A4A4' />
+            )}
+            {type === 'password' && (
+              <Feather name='key' size={24} color='#A4A4A4' />
+            )}
+          </View>
           <TextInput
             secureTextEntry={type === 'password' && showPassword}
             placeholderTextColor='#A4A4A4'
-            className='w-full pl-5 text-lg font-medium text-[#A4A4A4] leading-[n]'
+            style={{ lineHeight: 18 }}
+            className='pl-5 py-2 flex-1 text-lg font-medium text-[#A4A4A4]'
             {...props}
           />
-          {type === 'password' && isShowPassword()}
+          {type === 'password' && (
+            <Pressable onPress={toggleShowPassword}>
+              <Feather
+                name={showPassword ? 'eye-off' : 'eye'}
+                size={24}
+                color='#A4A4A4'
+              />
+            </Pressable>
+          )}
         </View>
       </LinearGradient>
     </View>
