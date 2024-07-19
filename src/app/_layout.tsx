@@ -11,18 +11,22 @@ export default function RootLayout() {
 
   return (
     <GlobalLayout>
+      <StatusBar barStyle='light-content' />
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#FFF',
+            backgroundColor: '#2B1F2A',
           },
-          headerTintColor: '#FFF',
+          headerTintColor: '#FFFFFF',
           headerTitleStyle: {
-            color: '#FFF',
+            color: '#FFFFFF',
           },
+          headerShown: false,
         }}
       >
-        <Stack.Screen name='index' options={{ headerShown: false }} />
+        <Stack.Screen name='index' options={{ title: 'Home' }} />
+        <Stack.Screen name='signin/index' options={{ title: 'Entrar' }} />
+        <Stack.Screen name='signup/index' options={{ title: 'Cadastrar' }} />
       </Stack>
     </GlobalLayout>
   );
