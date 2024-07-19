@@ -9,10 +9,10 @@ export default function Index() {
     <View className='flex-1 bg-[#2B1F2A]'>
       <View className='gap-7 m-auto max-w-[90%] pt-10 pb-20'>
         <Text className='text-white text-center'>Home</Text>
-        <Link className='text-white text-center' href='/signin'>
+        <Link className='text-white text-center' href='/login'>
           Entrar
         </Link>
-        <Link className='text-white text-center' href='/signup'>
+        <Link className='text-white text-center' href='/register'>
           Cadastrar
         </Link>
       </View>

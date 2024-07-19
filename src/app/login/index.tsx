@@ -4,7 +4,7 @@ import Input from '@/src/components/Input';
 import Button from '@/src/components/Button';
 import SeparatorSocialLogin from '@/src/components/SeparatorSocialLogin';
 
-export default function SignInScreen() {
+export default function LoginScreen() {
   return (
     <View className='flex-1 bg-[#2B1F2A]'>
       <View className='gap-7 m-auto w-[90%] pt-10 pb-20'>
@@ -41,7 +41,7 @@ export default function SignInScreen() {
 
         <Text className='text-center text-md text-[#A4A4A4]'>
           É o seu primeiro acesso?{' '}
-          <Link href='/signup' className='underline'>
+          <Link href='/register' className='underline'>
             Cadastre-se
           </Link>
         </Text>

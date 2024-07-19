@@ -25,8 +25,8 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name='index' options={{ title: 'Home' }} />
-        <Stack.Screen name='signin/index' options={{ title: 'Entrar' }} />
-        <Stack.Screen name='signup/index' options={{ title: 'Cadastrar' }} />
+        <Stack.Screen name='login/index' options={{ title: 'Entrar' }} />
+        <Stack.Screen name='register/index' options={{ title: 'Cadastrar' }} />
       </Stack>
     </GlobalLayout>
   );
